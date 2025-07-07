@@ -129,5 +129,21 @@ const uploadMusic = async (req, res) => {
         }
 }
 
+const getMusic = async (req, res)  => {
+    try {
+        const musics = await music.find()
+        if (!musics || musics.length === 0){
+            return res.status(404).json({success: false, message: "No music found."});
+        }
+        res.status(200).json({success: true, message: "Music fetched successfully.", musics});
 
-export {register, login, uploadMusic};
+        
+    } catch (error) {
+        console.error("Error in fetching music:", error);
+        return res.status(500).json({success: false, message:"Internal server error."});
+        
+    }
+}
+
+
+export {register, login, uploadMusic , getMusic};
