@@ -1,6 +1,8 @@
 import admin from "../models/admin.model.js";
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
+import music from "../models/music.model.js";
+import path from "path";
 
 const register = async (req, res) => {
     try{
@@ -87,5 +89,45 @@ const login = async (req, res) => {
     }
 }
 
+const uploadMusic = async (req, res) => {
+    try {
+        const {title, artist} = req.body
+        if(!title || !artist){
+            return res.status(400).json({success: false, message:"All fields are required."});
+        }
 
-export {register, login};
+        const musicFile = req.files.music?.[0];
+        const imageFile = req.files.image?.[0];
+
+        if (!musicFile || !imageFile) {
+            return res.status(400).json({success: false, message:"Music file and image are required."});
+        }
+
+        const allowedExtensions = ['.mp3', '.jpg', '.jpeg', '.png', '.webp', '.wav'];
+        const musicExt = path.extname(musicFile.originalname).toLowerCase();
+        const imageExt = path.extname(imageFile.originalname).toLowerCase();
+
+        if (!allowedExtensions.includes(musicExt) || !allowedExtensions.includes(imageExt)) {
+            return res.status(400).json({success: false, message:"Invalid file type. Only audio (.mp3, .wap) and image ( '.jpg', '.jpeg', '.png', '.webp',) files are allowed."});
+        }
+
+        const filePath = musicFile.filename;
+        const imagePath = imageFile.filename;
+        const newMusic = new music({
+            title,
+            artist,
+            filePath,
+            imagePath
+        });
+        await newMusic.save();
+        res.status(201).json({
+            success: true,message: "Music uploaded successfully.", newMusic}); 
+            
+        } catch (error) {
+            console.error("Error in uploading music:", error);
+            return res.status(500).json({success: false, message:"Internal server error."});            
+        }
+}
+
+
+export {register, login, uploadMusic};
