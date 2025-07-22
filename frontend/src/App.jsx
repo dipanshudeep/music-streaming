@@ -5,6 +5,8 @@ import SongsList from './pages/SongsList'
 import SideBar from './components/SideBar'
 import Header from './components/Header'
 import Display from './components/Display'
+import {ToastContainer} from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 function App() {
   const location =  useLocation()
@@ -12,6 +14,7 @@ function App() {
   const isAdminPage = adminPath.includes(location.pathname) 
   return (
     <div className='flex relative h-screen'>
+      <ToastContainer/>
       {isAdminPage ? (
         <>
       <SideBarAdmin/>
@@ -22,11 +25,11 @@ function App() {
         </Routes>
       </div>
       </>) : (<>
-      <SideBar/>
+      <SideBar/>  
       <div className='flex-2 overflow-y-scroll bg-black  '>
          <Header/>
       </div>
-      <div className='flex bg-black hidden lg:block p-2'>
+      <div className='flex bg-black md:hidden lg:block p-2'>
         <Display/>
       </div>
       </>)}
