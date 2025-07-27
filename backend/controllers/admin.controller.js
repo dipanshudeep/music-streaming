@@ -165,4 +165,4 @@ const deleteMusic = async (req, res) => {
     }
 }
 
-export {register, login, uploadMusic , getMusic, deleteMusic};
+export {register, login, uploadMusic , getMusic, deleteMusic}; 
