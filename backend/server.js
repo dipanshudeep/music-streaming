@@ -13,7 +13,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 app.use(json());
 app.use(cors());
-app.use('/upload', express.static(path.join(path.resolve(), 'uploads')));
+app.use('/upload', express.static(path.join(path.resolve(), 'upload')));
 app.use('/api/admin',adminRouter)
 
 app.get('/', (req, res) => {
