@@ -8,7 +8,7 @@ function Display() {
   console.log('songData in display', songData);
 
   return (
-    <div className="w-96 auto bg-gradient-to-r from-gray-900 to-gray-700 text-white rounded-xl px-3 mr-3 overflow-y-scroll">
+    <div className="w-96 auto bg-gradient-to-r from-gray-900 to-gray-700 text-white rounded-xl px-3 mr-3 hidden xl:block lg:block overflow-y-scroll">
       <div className="flex flex-row items-center justify-between py-2 mt-2 px-2">
         <h1 className="text-md font-bold ">top streames</h1>
         <div className="flex flex-row items-center bg-gray-400 px-1 py-1 rounded-lg space-x-2">

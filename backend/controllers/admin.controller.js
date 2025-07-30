@@ -111,10 +111,10 @@ const uploadMusic = async (req, res) => {
             return res.status(400).json({success: false, message:"Invalid file type. Only audio (.mp3, .wap) and image ( '.jpg', '.jpeg', '.png', '.webp',) files are allowed."});
         }
 
-        // const filePath ="upload/"+ musicFile.filename;
-        // const imagePath ="upload/"+ imageFile.filename;
-        const filePath = musicFile.filename;
-        const imagePath =imageFile.filename;
+        const filePath ="upload/"+ musicFile.filename;
+        const imagePath ="upload/"+ imageFile.filename;
+        // const filePath = musicFile.filename;
+        // const imagePath =imageFile.filename;
         const newMusic = new music({
             title,
             artist,
