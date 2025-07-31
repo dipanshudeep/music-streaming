@@ -12,6 +12,7 @@ const PlayerContextProvider = ({children})=>{
             const {data} = await axios.get(`${backendUrl}/api/admin/get-music`)
             if (data.success) {
                 setSongData(data.musics);
+                console.log("Fetched songs successfully:", data.musics);
             }
             
         } catch (error) {

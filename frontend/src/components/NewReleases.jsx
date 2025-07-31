@@ -21,12 +21,12 @@ function NewReleases({setCurrentSongImage, setCurrentSongTitle, setCurrentSongAr
     if (audioRef.current) {
       audioRef.current.pause();
     }
-    console.log('song in playClicked sdfgdsfgdsffgghfg', song);
+    console.log('song in playClicked inside new release', song);
     
     
     audioRef.current.src = `${backendUrl}/upload/${song.filePath}`;
     audioRef.current.play();
-    console.log("song ki id", song._id);
+    // console.log("song ki id", song._id);
     
     // set to current and duration progress traking
     setIsPlaying(song._id);
@@ -35,7 +35,7 @@ function NewReleases({setCurrentSongImage, setCurrentSongTitle, setCurrentSongAr
     }
     audioRef.current.ontimeupdate = () =>{
       setCurrentTime(audioRef.current.currentTime);
-      console.log('current time ppppppppppppppppp', audioRef.current.currentTime);
+      // console.log('current time ppppppppppppppppp', audioRef.current.currentTime);
       const imageurl = `${backendUrl}/upload/${song.imagePath}`.replace(/\\/g, '/');
       setCurrentSongImage(imageurl);
       setCurrentSongTitle(song.title);
@@ -66,7 +66,7 @@ function NewReleases({setCurrentSongImage, setCurrentSongTitle, setCurrentSongAr
         const progressbar = e.target;
         const newTime = (e.clientX - progressbar.getBoundingClientRect().left) / progressbar.offsetWidth * duration;
         audioRef.current.currentTime = newTime;
-        console.log("new time in handle progress bar", newTime);
+        // console.log("new time in handle progress bar", newTime);
         
         // setCurrentTime(newTime);
         

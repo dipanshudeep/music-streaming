@@ -7,15 +7,15 @@ import { toast } from 'react-toastify';
 
 import 'react-toastify/dist/ReactToastify.css';
 function MusicCard({music, fetchSongs}) {
-    console.log(music);
+    console.log("inside card" ,music);
     
   const {backendUrl} = useContext(PlayerContext);
   const audioSrc = `${backendUrl}/upload/${music.filePath}`;
   const imageSrc = `${backendUrl}/upload/${music.imagePath}`; 
   // const audioSrc = `${backendUrl}/${music.filePath}`;
   // const imageSrc = `${backendUrl}/${music.imagePath}`; 
-    console.log("xxxxx",audioSrc);
-    console.log("xxxxx",imageSrc);
+    // console.log("xxxxx",audioSrc);
+    // console.log("xxxxx",imageSrc);
     
   const deleteSong = async () => {
     try {
