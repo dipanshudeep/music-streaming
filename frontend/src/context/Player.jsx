@@ -3,7 +3,7 @@ import axios from "axios";
 
 const PlayerContext = createContext();
 const PlayerContextProvider = ({children})=>{
-    const backendUrl = `http://localhost:4000`;
+    const backendUrl = `https://music-streaming-q2j7.onrender.com`;
    
     const [songData, setSongData] = useState([]);
    
