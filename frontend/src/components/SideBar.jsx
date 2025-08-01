@@ -1,8 +1,9 @@
 import React from 'react'
-import { IoMdHome } from 'react-icons/io'
+import { IoIosAddCircle, IoMdHome } from 'react-icons/io'
 import {BsGrid1X2} from 'react-icons/bs'
 import {CiHeart} from 'react-icons/ci'
 import { CiHeadphones } from 'react-icons/ci'
+import { NavLink } from 'react-router-dom'
 function SideBar() {
   return (
     <div className='bg-gradient-to-l from-black to-gray-700'>
@@ -32,6 +33,14 @@ function SideBar() {
         <div className='hover:bg-red-500 w-full flex-row item-center justify-center gap-2 py-2 px-2 rounded-lg cursor-pointer'>
           <CiHeadphones className='text-2xl font-medium text-white' />
           <p className='text-white text-lg font-semibold hidden md:block'>library</p>
+        </div>
+      </div>
+      <div className='flex flex-row items-center justify-center gap-5 py-2 px-2'>
+        <div className='hover:bg-red-500 w-full flex-row item-center justify-center gap-2 py-2 px-2 rounded-lg cursor-pointer'>
+          <NavLink to={'/add-music'} className={'flex items-center gap-2 text-white hover:text-gray-300 text-sm font-medium cursor-pointer'}>
+          <IoIosAddCircle className='w-12 h-12 text-xl font-medium' />
+          <p >add music</p>
+        </NavLink>
         </div>
       </div>
     </div>

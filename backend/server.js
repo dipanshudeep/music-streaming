@@ -13,7 +13,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 app.use(json());
 app.use(cors({
-  origin:'*'
+  origin:['https://music-streaming-psi.vercel.app/','*']
 }));
 
 app.use('/upload', express.static(path.join(path.resolve(), 'upload')));
