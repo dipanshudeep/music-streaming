@@ -13,8 +13,9 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 app.use(json());
 app.use(cors({
-  origin: ['https://music-streaming-q2j7.onrender.com', `https://music-streaming-7tk2508iu-dipanshudeep-s-projects.vercel.app/`]
+  origin:'*'
 }));
+
 app.use('/upload', express.static(path.join(path.resolve(), 'upload')));
 app.use('/api/admin',adminRouter)
 
